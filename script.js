@@ -1,29 +1,15 @@
 const quotes = [
-  "You are light. You are power. Shine relentlessly.",
-  "Even in silence, your purpose speaks volumes.",
-  "There is magic in your motion. Keep moving.",
-  "Your dream is not too big — it's waiting.",
-  "Rise as if you're already crowned.",
-  "Every breath is a blessing. Build from it.",
-  "No one else can deliver what you carry.",
-  "Speak as though the universe is listening."
+  "The only limit to our realization of tomorrow is our doubts of today.",
+  "Believe you can and you're halfway there.",
+  "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+  "Don’t watch the clock; do what it does. Keep going.",
+  "Keep your face always toward the sunshine—and shadows will fall behind you."
 ];
 
-function newQuote() {
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  const quoteElement = document.getElementById("quote");
-  quoteElement.textContent = quote;
-}
+const quoteEl = document.getElementById("quote");
+const newQuoteBtn = document.getElementById("new-quote");
 
-function shareQuote() {
-  const quote = document.getElementById("quote").textContent;
-  if (navigator.share) {
-    navigator.share({
-      title: 'Inspiration Quote',
-      text: quote,
-      url: window.location.href
-    }).catch(console.error);
-  } else {
-    alert("Sharing not supported on this browser.");
-  }
-}
+newQuoteBtn.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quoteEl.textContent = quotes[randomIndex];
+});
