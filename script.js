@@ -14,3 +14,16 @@ function newQuote() {
   const quoteElement = document.getElementById("quote");
   quoteElement.textContent = quote;
 }
+
+function shareQuote() {
+  const quote = document.getElementById("quote").textContent;
+  if (navigator.share) {
+    navigator.share({
+      title: 'Inspiration Quote',
+      text: quote,
+      url: window.location.href
+    }).catch(console.error);
+  } else {
+    alert("Sharing not supported on this browser.");
+  }
+}
