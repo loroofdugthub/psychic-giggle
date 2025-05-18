@@ -13,7 +13,4 @@ function newQuote() {
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
   const quoteElement = document.getElementById("quote");
   quoteElement.textContent = quote;
-  quoteElement.style.animation = "none";
-  quoteElement.offsetHeight;
-  quoteElement.style.animation = "fadeIn 0.8s ease";
 }
